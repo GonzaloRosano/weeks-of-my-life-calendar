@@ -1,0 +1,157 @@
+:root {
+    --bg-color-light: #f0f0f0;
+    --bg-color-dark: #1e1e1e;
+    --container-bg-light: #ffffff;
+    --container-bg-dark: #2e2e2e;
+    --text-color-light: #333;
+    --text-color-dark: #f0f0f0;
+    --week-bg-light: #e0e0e0;
+    --week-bg-dark: #444;
+    --week-checked-light: #4caf50;
+    --week-checked-dark: #66bb6a;
+    --week-hover-light: #b2dfdb;
+    --week-hover-dark: #555;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.calendar-set {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--container-bg-dark);
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1800px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.separator {
+    width: 100%;
+    height: 20px;
+    background-color: var(--bg-color-dark);
+}
+
+.month {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 5px;
+}
+
+.week {
+    background-color: var(--week-bg-dark);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    height: 25px;
+    width: 25px;
+    color: var(--text-color-dark);
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.week input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.week.checked {
+    background-color: var(--week-checked-dark);
+    color: #fff;
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.week:hover {
+    background-color: var(--week-hover-dark);
+}
+
+/* Dark theme styles */
+body.dark {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+.dark .calendar-set {
+    background-color: var(--container-bg-dark);
+}
+
+.dark .week {
+    background-color: var(--week-bg-dark);
+    color: var(--text-color-dark);
+}
+
+.dark .week.checked {
+    background-color: var(--week-checked-dark);
+}
+
+.dark .week:hover {
+    background-color: var(--week-hover-dark);
+}
+
+.light .calendar-set {
+    background-color: var(--container-bg-light);
+}
+
+.light .week {
+    background-color: var(--week-bg-light);
+    color: var(--text-color-light);
+}
+
+.light .week.checked {
+    background-color: var(--week-checked-light);
+}
+
+.light .week:hover {
+    background-color: var(--week-hover-light);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    margin-bottom: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--week-checked-dark);
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--week-checked-light);
+}
